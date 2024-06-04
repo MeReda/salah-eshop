@@ -20,6 +20,7 @@ $Produits = afficher();
   <link href="css/bootstrap.min.css" rel="stylesheet">
 
   <script src="js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
   <style>
@@ -52,26 +53,52 @@ $Produits = afficher();
         <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z" />
         <circle cx="12" cy="13" r="4" />
       </svg>
-      <span class="fs-4">MonoShop</span>
+      <span class="fs-4">WildGear</span>
     </a>
 
-    <ul class="nav nav-pills">
+    <ul class="nav nav-pills align-items-center">
 
       <li class="nav-item"><a href="login.php">Se connecter</a></li>
+      <!-- Cart button  -->
+      <li class="nav-item ms-4">
+        <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          <i class="fa-solid fa-cart-shopping btn btn-primary rounded-pill p-2"></i>
+        </button>
+      </li>
     </ul>
   </header>
 
   <main>
 
+    <!-- Cart modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">My Cart </h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <div id="cartItem">...</div>
+            <div class="foot d-flex gap-3 align-items-center justify-content-end">
+              <h3>Total</h3>
+              <h2 id="total">€ 0.00</h2>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Pay</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div class="px-4 py-5 my-5 text-center">
-      <img class="d-block mx-auto mb-4" src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+      <img class="d-block mx-auto mb-4" src="images/logo.png" alt="" width="72" height="57">
       <h1 class="display-5 fw-bold text-body-emphasis">Centered hero</h1>
       <div class="col-lg-6 mx-auto">
         <p class="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
-        <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-          <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-          <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-        </div>
+
       </div>
     </div>
 
@@ -126,6 +153,8 @@ $Produits = afficher();
       </ul>
     </footer>
   </div>
+
+  <script src="js/AddToCart.js"></script>
 </body>
 
 </html>
